@@ -1,81 +1,81 @@
-# infocryptology
-- �봽濡쒖젥�듃�뿉 contribute �븯湲곗쐞�빐�꽌 project owner 媛� contributor 濡� 異붽��빐以섏빞�븳�떎.
-- 異붽��븯�젮�뒗 email �� 媛쒖씤 profile > setting �뿉�꽌 email �쓣 怨듦컻�빐以섏빞�븳�떎.
-- contributor 媛� �릺湲� �쐞�빐�꽌 Angel-Study/webProject repository 瑜� fork �빐�빞�븳�떎.
+# angel study web project
+- 프로젝트에 contribute 하기위해서 project owner 가 contributor 로 추가해줘야한다.
+- 추가하려는 email 은 개인 profile > setting 에서 email 을 공개해줘야한다.
+- contributor 가 되기 위해서 Angel-Study/webProject repository 를 fork 해야한다.
 
 
 ## git config
-1. 濡쒖뺄�뿉�꽌 �봽濡쒖젥�듃瑜� �떎�슫諛쏆쑝�젮�뒗 �뤃�뜑濡� �씠�룞
+1. 로컬에서 프로젝트를 다운받으려는 폴더로 이동
 ```
 $ cd {path}
 ```
-2. git init �꽕�젙
+2. git init 설정
 ```
 $ git init
 ```
-3. git global �꽕�젙
+3. git global 설정
 ```
 $ git config --global user.name {username}
 $ git config --global user.email {email}
 ```
-4. �봽濡쒖젥�듃 clone
+4. 프로젝트 clone
 ```
 $ git clone git@github.com:Angel-Study/webProject.git
 ```
-5. �봽濡쒖젥�듃�쓽 push url �꽕�젙 
-- �봽濡쒖젥�듃 push �뒗 fork �맂 �봽濡쒖젥�듃濡� (ex) eunjeongsong/webProject
-- merge request �뒗 蹂� �봽濡쒖젥�듃濡� (ex) Angel-study/webProject
+5. 프로젝트의 push url 설정 
+- 프로젝트 push 는 fork 된 프로젝트로 (ex) eunjeongsong/webProject
+- merge request 는 본 프로젝트로 (ex) Angel-study/webProject
 ```
 $ git remote set-url --push origin git@github.com:eunjeongsong/webProject.git
 ```
-5. remote 寃쎈줈媛� �떎�쓬怨� 媛숈쑝硫� �젙�긽�쟻�쑝濡� remote 媛� �꽕�젙�맂 寃�
-- push url �� fork �맂 �봽濡쒖젥�듃
-- fetch(pull) url �� 蹂� �봽濡쒖젥�듃
+5. remote 경로가 다음과 같으면 정상적으로 remote 가 설정된 것
+- push url 은 fork 된 프로젝트
+- fetch(pull) url 은 본 프로젝트
 ```
 $ git remote -v
 origin	git@github.com:Angel-Study/webProject.git (fetch)
 origin	git@github.com:eunjeongsong/webProject.git (push)
 ```
-6. �떎�슫諛쏆� �봽濡쒖젥�듃 �뤃�뜑濡� �씠�룞
+6. 다운받은 프로젝트 폴더로 이동
 ```
 $ cd webProject
 ```
 
-## project push �젙梨�
-1. 紐⑤뱺 contributor �뒗 濡쒖뺄�뿉�꽌 媛쒖씤 branch 瑜� �뵲�꽌 �옉�뾽�븳�떎.
-- Merge request �뒗 fork �븳 repository �뿉 �깉濡쒖슫 釉뚮옖移섎�� �뵲�꽌 �벑濡앺븳�떎.
+## project push 정책
+1. 모든 contributor 는 로컬에서 개인 branch 를 따서 작업한다.
+- Merge request 는 fork 한 repository 에 새로운 브랜치를 따서 등록한다.
 ```
-$ git branch {�옉�뾽釉뚮옖移섎챸}
+$ git branch {작업브랜치명}
 ```
-2. push �븯湲� �쟾�뿉�뒗 �빆�긽 濡쒖뺄 master branch 濡� �씠�룞�빐 理쒖떊遺꾩쓣 pull 諛쏄퀬, push �븯�젮�뒗 branch 瑜� 理쒖떊 �긽�깭濡� 留뚮뱾�뼱以��떎.
+2. push 하기 전에는 항상 로컬 master branch 로 이동해 최신분을 pull 받고, push 하려는 branch 를 최신 상태로 만들어준다.
 ```
 $ git checkout master
 $ git pull
-$ git checkout {�옉�뾽釉뚮옖移섎챸}
+$ git checkout {작업브랜치명}
 $ git rebase master
 ```
-3. remote �봽濡쒖젥�듃濡� push �븳�떎. (remote �봽濡쒖젥�듃�쓽 master 釉뚮옖移섍� �븘�땶 �떎瑜� 釉뚮옖移섎줈 push)
+3. remote 프로젝트로 push 한다. (remote 프로젝트의 master 브랜치가 아닌 다른 브랜치로 push)
 ```
 $ git add .
-$ git commit -am "{�옉�뾽�궡�슜}"
-$ git push origin {�옉�뾽釉뚮옖移섎챸}
+$ git commit -am "{작업내용}"
+$ git push origin {작업브랜치명}
 ```
-4. [Angel-Study/webProject](https://github.com/Angel-Study/webProject/pulls)�뿉�꽌 "pull Request" 瑜� �깮�꽦�븳�떎.
-- pull Request �쓽 commit message 瑜� �넻�빐 �뼱�뼡 �씠�뒋�뿉���븳 �궡�슜�쓣 �빐寃고뻽�뒗吏��뿉 ���븳 �깭源낆쓣 �빐以��떎. ex) resolve #{�씠�뒋踰덊샇} {而ㅻ컠�궡�슜} 
-5. �봽濡쒖젥�듃 owner 媛� request 瑜� �솗�씤�빐 push �븳 �궡�슜�쓣 癒몄��빐以��떎.
-6. Merge request �씠�썑 癒몄��맂 釉뚮옖移섎뒗 媛��뒫�븳 �궘�젣�븯怨�, �깉濡쒖슫 釉뚮옖移섎�� �뵲�꽌 �깉濡쒖슫 �옉�뾽�쓣 吏꾪뻾�븷 �닔 �엳�룄濡� �븳�떎.
+4. [Angel-Study/webProject](https://github.com/Angel-Study/webProject/pulls)에서 "pull Request" 를 생성한다.
+- pull Request 의 commit message 를 통해 어떤 이슈에대한 내용을 해결했는지에 대한 태깅을 해준다. ex) resolve #{이슈번호} {커밋내용} 
+5. 프로젝트 owner 가 request 를 확인해 push 한 내용을 머지해준다.
+6. Merge request 이후 머지된 브랜치는 가능한 삭제하고, 새로운 브랜치를 따서 새로운 작업을 진행할 수 있도록 한다.
 ```
 $ git checkout master
 $ git pull
-$ git branch -D {�옉�뾽釉뚮옖移섎챸}
-$ git checkout -b {�깉濡쒖슫釉뚮옖移섎챸}
+$ git branch -D {작업브랜치명}
+$ git checkout -b {새로운브랜치명}
 ```
-- 釉뚮옖移섎�� �젣嫄고븳 寃쎌슦 濡쒖뺄�뿉�꽌 �듃�옒�궧 以묒씤 remote 釉뚮옖移� �젙蹂대�� �젣嫄고빐 以��떎.
+- 브랜치를 제거한 경우 로컬에서 트래킹 중인 remote 브랜치 정보를 제거해 준다.
 ```
-# �듃�옒�궧 以묒씤 remote branch 媛� �엳�뒗 寃쎌슦 �꽌踰꾩뿉�꽌 �궘�젣�릺硫� 濡쒖뺄�뿉�꽌�룄 由щえ�듃 釉뚮옖移� �젙蹂닿� �궘�젣�맖.
+# 트래킹 중인 remote branch 가 있는 경우 서버에서 삭제되면 로컬에서도 리모트 브랜치 정보가 삭제됨.
 $ git fetch -p
 ```
 
 ## coding convention
-- 媛쒕컻 tool �� brackets2 瑜� �궗�슜�븳�떎.
-- beautify �뵆�윭洹몄씤�쓣 �꽕移섑빐 肄붾뱶 �룷留룹쓣 留욎텣�떎.(硫붾돱 > �렪吏� > beautify �꽑�깮) 
+- 개발 tool 은 brackets2 를 사용한다.
+- beautify 플러그인을 설치해 코드 포맷을 맞춘다.(메뉴 > 편집 > beautify 선택) 
