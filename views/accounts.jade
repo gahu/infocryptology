@@ -1,0 +1,18 @@
+extends layout
+
+block pageTitle
+  //this will get displayed in the pageTitle block in layout.jade.
+  //This makes a reference backing data model of this page
+  h1 #{accounts.kind}
+
+block pageContent
+  ul
+  each account in accounts.list
+    .well
+      h2 #{account.name}
+      img(src='#{account.photo}')
+      h3 ingredients
+      h5
+      ul
+      each ingredient in account.ingredients
+        li=ingredient
