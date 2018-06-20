@@ -28,7 +28,7 @@ main-branches
 3. hotfix
 
 ## feature
-**eature** branch는 곧 배포할(다음 혹은 언젠가) 기능을 개발하는 branch이다. 따로 분리된 branch에서 개발을 진행하며 기능이 완료되는 시점에 **develop** branch로 merge한다. 일반적으로 origin에 push하지 않고 local에서 생성하는 branch이다. 같이 작업한다면 push하여 작업해도 좋다. 이러한 feature 단위의 branch를 통해서 release 대상 feature를 선택하거나 버리기 용이하기 때문에 local에서 작업하더라도 feature branch를 생성해서 하는 것을 권장한다.
+**feature** branch는 곧 배포할(다음 혹은 언젠가) 기능을 개발하는 branch이다. 따로 분리된 branch에서 개발을 진행하며 기능이 완료되는 시점에 **develop** branch로 merge한다. 일반적으로 origin에 push하지 않고 local에서 생성하는 branch이다. 같이 작업한다면 push하여 작업해도 좋다. 이러한 feature 단위의 branch를 통해서 release 대상 feature를 선택하거나 버리기 용이하기 때문에 local에서 작업하더라도 feature branch를 생성해서 하는 것을 권장한다.
 
 **feature** branch는 아래와 같이 생성하고 merge한다:
 
