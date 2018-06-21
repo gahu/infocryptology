@@ -1,66 +1,67 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.17;
 
- contract Contract{
- mapping(address => Person) public Contracts;
- address[] contractIndex;
-     struct Person{
-         string LessorName;
-         string HirerName;
-         string BrokerName;
-         string Address;
-         string ContractDate;
-         string ExpireDate;
-         uint Payment;
-         uint DownPayment;
-         uint leaseFee;
-     }
-    function insertContract(
-                address userAddress,
-                string LessorName,
-                string HirerName,
-                string BrokerName,
-                string Address,
-                string ContractDate,
-                string ExpireDate,
-                uint Payment,
-                uint DownPayment,
-                uint leaseFee
-       )public returns(bool success){
-        Contracts[userAddress].LessorName = LessorName;
-        Contracts[userAddress].HirerName = HirerName;
-        Contracts[userAddress].BrokerName = BrokerName;
-        Contracts[userAddress].Address = Address;
-        Contracts[userAddress].ContractDate = ContractDate;
-        Contracts[userAddress].ExpireDate = ExpireDate;
-        Contracts[userAddress].Payment = Payment;
-        Contracts[userAddress].DownPayment = DownPayment;
-        Contracts[userAddress].leaseFee = leaseFee;
-        contractIndex.push(userAddress);
-        return true;
+ contract HouseContract{
+    address Creator;
+    string LessorName="chang";
+    string HirerName="han";
+    string BrokerName="jang";
+    string Address="shincgon";
+    string ContractDate="2017-13-45";
+    string ExpireDate="2018-2-31";
+    uint16 Payment=6500;
+    uint16 DownPayment=30;
+    uint16 leaseFee=15;
+
+    function HouseContract() public {
+        Creator = msg.sender;
     }
-    function getContract(address userAddress)
-    public
-    constant
-    returns(string LessorName,
-            string HirerName,
-            string BrokerName,
-            string Address,
-            string ContractDate,
-            string ExpireDate,
-            uint Payment,
-            uint DownPayment,
-            uint leaseFee)
-            {
-            return(Contracts[userAddress].LessorName,
-            Contracts[userAddress].HirerName,
-            Contracts[userAddress].BrokerName,
-            Contracts[userAddress].Address,
-            Contracts[userAddress].ContractDate,
-            Contracts[userAddress].ExpireDate,
-            Contracts[userAddress].Payment,
-            Contracts[userAddress].DownPayment,
-            Contracts[userAddress].leaseFee);
-            }
-      }
 
+    function getCreator() constant public returns(address) {
+        return Creator;
+    }
+
+    function insertContract_name(
+                //address _userAddress,
+                string _LessorName,
+                string _HirerName,
+                string _BrokerName
+                )public {
+        LessorName = _LessorName;
+        HirerName = _HirerName;
+        BrokerName = _BrokerName;
+
+    }
+    function insertContract_date (
+                string _Address,
+                string _ContractDate,
+                string _ExpireDate
+                )public {
+          Address = _Address;
+          ContractDate = _ContractDate;
+          ExpireDate = _ExpireDate;
+
+      }
+      function insertContract_etc (
+                uint16 _Payment,
+                uint16 _DownPayment,
+                uint16 _leaseFee
+                )public {
+          Payment = _Payment;
+          DownPayment = _DownPayment;
+          leaseFee = _leaseFee;
+                }
+
+    function getContract_name() public constant
+    returns(string, string, string){
+            return (LessorName, HirerName, BrokerName);
+            }
+    function getContract_date() public constant
+    returns(string, string, string){
+            return ( Address,ContractDate, ExpireDate);
+            }
+
+    function getContract_etc()public  constant
+    returns(uint16, uint16, uint16){
+            return (Payment, DownPayment, leaseFee);
+            }
 }
