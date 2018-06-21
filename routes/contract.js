@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/contract', function(req, res, next) {
   res.render('contract');
 });
 
 
-router.post('/',function(req,res,next){
+router.post('/contract', function(req,res,next){
   res.render('contract', {
     LessorName : req.body.LessorName,
     HirerName:req.body.HirerName,
