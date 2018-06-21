@@ -9,8 +9,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var recipesRouter = require('./routes/recipes');
 var accountsRouter = require('./routes/accounts');
+var authRouter = require('./routes/auth');
 var contractRouter = require('./routes/contract');
 var models = require('./models');
+
 var app = express();
 
 const bodyParser = require('body-parser');
@@ -44,6 +46,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/recipes', recipesRouter);
 app.use('/accounts', accountsRouter);
+app.use('/auth', authRouter);
 
 app.get('/accounts/signup', function(req, res){
   res.render('signup');

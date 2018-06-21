@@ -85,6 +85,42 @@ $ git checkout -b {새로운브랜치명}
 # 트래킹 중인 remote branch 가 있는 경우 서버에서 삭제되면 로컬에서도 리모트 브랜치 정보가 삭제됨.
 $ git fetch -p
 ```
+***
+- git pull 충돌시 요령
+git을 이용하다가 pull을 했을때 아래와 같이 충돌이 나는 경우가 생긴다.
+```
+[oops]$ git pull
+
+remote: Counting objects: 99, done.
+
+remote: Compressing objects: 100% (68/68), done.
+
+remote: Total 69 (delta 51), reused 0 (delta 0)
+
+Unpacking objects: 100% (69/69), done.
+
+From 10.25.1.20:/work/git/oops
+
+   dab9a8b..b49cd63  master     -> origin/master
+
+Updating dab9a8b..b49cd63
+
+error: Your local changes to the following files would be overwritten by merge:
+
+        Makefile
+
+Please, commit your changes or stash them before you can merge.
+
+Aborting
+```
+이때, 작업중인 IDE를 정상종료하고 다음의 명령어를 사용한다.
+```
+1. git add -A
+1. git stash / git stash pop
+2. git pull
+```
+그럼 작업이 남아있던 부분이 사라지고 정상적으로 git pull을 할 수 있게 된다.
+[stash와 관련된 내용]: (http://wit.nts-corp.com/2014/03/25/1153)
 
 ## coding convention
 - 개발 tool 은 Atom 를 사용한다.
