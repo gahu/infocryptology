@@ -32,14 +32,11 @@ router.post('/signin', function(req, res){
       if(isValidPassword(user.UserPWD, req.body.password)){
         req.session.user_uid = req.body.email;
         res.redirect('/');
-        Bert.alert("You are now Signed in", "success", "growl-top-right");
       } else{
-        res.redirect('/signup');
-        Bert.alert("Wrong Password", "danger", "growl-top-right");
+        res.redirect('/auth/signin');
       }
     }else{
-      res.redirect('/signin');
-      Bert.alert("Email not exist", "danger", "growl-top-right");
+      res.redirect('/auth/signup');
     }
   })
 });
@@ -67,17 +64,14 @@ router.post('/signup', function(req, res){
         UserName: req.body.name,
         UserClass: req.body.class
       }).then(result =>{
-        res.redirect('/index_login');
-        Bert.alert("You are now Signed up", "success", "growl-top-right");
+        res.redirect('/auth/signin');
       })
       .catch(err =>{
-        res.redirect('/accounts/signup');
-        Bert.alert("Your signup form is Wrong", "danger", "growl-top-right");
+        res.redirect('/auth/signup');
       })
     }
     else{
-      res.redirect('/signin');
-      Bert.alert("Email already exist", "danger", "growl-top-right");
+      res.redirect('/auth/signup');
     }
   })
 });
@@ -93,9 +87,9 @@ router.get('/logout', function(req, res) {
 });
 
 function isLoggedIn(req, res, next) {
-  if (req.session == true)
+  if (req.session.user_uid)
     return next();
-  res.redirect('/signin');
+  res.redirect('/auth/signin');
 }
 
 module.exports = router;

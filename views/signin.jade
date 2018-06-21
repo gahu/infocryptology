@@ -1,7 +1,7 @@
 extends layout
 
 block pageContent
-  form(method='POST', action='/signin', id='signin')
+  form(method='POST', action='/auth/signin', id='signin')
     label(for='email') Email Address
     input(type='text', name='email', placeholder='Email')
     label(for='password') Password
