@@ -1,9 +1,9 @@
 extends layout
 
 block pageContent
-  from(method='POST', action='/signin', id='signin')
+  form(method='POST', action='/signin', id='signin')
     label(for='email') Email Address
     input(type='text', name='email', placeholder='Email')
     label(for='password') Password
     input(type='text', name='password', placeholder='Password')
-    input.btn(type='sumbit', value='Sign In')
+    input.btn(type='submit', value='Sign In')

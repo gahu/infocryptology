@@ -1,10 +1,10 @@
-extends layout
+extends layout_login
 
-block content
+block pageContent
 
-    h1 submit
+    h1 Contract
 
-    form(id='form',action ='/contract', method='POST')
+    form(id='form', action ='/contract', method='POST')
       input(id='LessorName',name='LessorName',placeholder='LessorName')
       input(id='HirerName',name='HirerName',placeholder='HirerName')
       input(id='BrokerName',name='BrokerName',placeholder='BrokerName')
