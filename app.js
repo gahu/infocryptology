@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var recipesRouter = require('./routes/recipes');
 var accountsRouter = require('./routes/accounts');
+var contractRouter = require('./routes/contract');
 var models = require('./models');
 var app = express();
 
@@ -25,6 +26,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/contract',contractRouter);
 app.use(cookieParser());
 //app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -67,16 +69,16 @@ app.post('/accounts/signup', function(req, res){
         UserClass: req.body.class
       }).then(result =>{
         res.redirect('/');
-        Bert.alert("You are now Signed up", "success", "growl-top-right");        
+        Bert.alert("You are now Signed up", "success", "growl-top-right");
       })
       .catch(err =>{
         res.redirect('/accounts/signup');
-        Bert.alert("Your signup form is Wrong", "danger", "growl-top-right");        
+        Bert.alert("Your signup form is Wrong", "danger", "growl-top-right");
       })
     }
     else{
       res.redirect('/accounts/signin');
-      Bert.alert("Email already exist", "danger", "growl-top-right");      
+      Bert.alert("Email already exist", "danger", "growl-top-right");
     }
   })
 });

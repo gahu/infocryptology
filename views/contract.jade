@@ -1,5 +1,21 @@
 extends layout
 
-block pageTitle
-  h1 pageTitle
-  
+block content
+
+    h1 submit
+
+    form(id='form',action ='/contract', method='POST')
+      input(id='LessorName',name='LessorName',placeholder='LessorName')
+      input(id='HirerName',name='HirerName',placeholder='HirerName')
+      input(id='BrokerName',name='BrokerName',placeholder='BrokerName')
+      input(id='Payment',name='Payment',placeholder='Payment')
+      input(id='DownPayment',name='DownPayment',placeholder='DownPayment')
+      input(id='leaseFee',name='leaseFee',placeholder='leaseFee')
+      input(type='submit', value='Add post')
+
+    p  LessorName  : #{LessorName}
+    p  HirerName   : #{HirerName}
+    p  BrokerName  : #{BrokerName}
+    p  Payment     : #{Payment}
+    p  DownPayment : #{DownPayment}
+    p  leaseFee    : #{leaseFee}
