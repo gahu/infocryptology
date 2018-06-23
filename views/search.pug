@@ -2,21 +2,22 @@ extends layout
 
 block pageContent
   div
-    form.form-1(method='POST', action='/contract', id='contract')
+    form.form-1(method='POST', action='/search', id='contract')
       p 찾고 싶은 계약 정보를 입력하세요.
       p.field
-        input(type='password', name='email', placeholder='예) 132[blocknumber]')
+        input(type='password', name='ContractNumber', placeholder='예) 132[blocknumber]')
         i.fa.fa-file-text-o
       p.submit
         button(type='submit', name='submit')
           i.fa.fa-arrow-right
   div
-    p  LessorName  : #{LessorName}
-    p  HirerName   : #{HirerName}
-    p  BrokerName  : #{BrokerName}
-    p  Payment     : #{Payment}
-    p  DownPayment : #{DownPayment}
-    p  leaseFee    : #{leaseFee}
+    p  LessorName   : #{LessorName}
+    p  HirerName    : #{HirerName}
+    p  BrokerName   : #{BrokerName}
+    p  Address      : #{Address}
+    p  ContractDate : #{ContractDate}
+    p  ExpireDate   : #{ExpireDate}
+    p  Payment      : #{Payment}
 
   div
     p

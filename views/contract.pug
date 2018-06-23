@@ -2,38 +2,31 @@ extends layout_login
 
 block pageContent
   h1 Contract
-  form.form-1(method='POST', action='/contract', id='contract')
+  form.form-1(method='POST', action='/auth/contract', id='contract')
     p.field
-      input(type='text', name='email', placeholder='Email Address')
+      input(type='text', name='LessorName', placeholder='LessorName')
       i.fa.fa-address-card-o
     p.field
-      input(type='text', name='password', placeholder='Password')
+      input(type='text', name='HirerName', placeholder='HirerName')
       i.fa.fa-lock
     p.field
-      input(type='text', name='name', placeholder='Name')
+      input(type='text', name='BrokerName', placeholder='BrokerName')
       i.fa.fa-align-justify
     p.field
-      input(type='password', name='class', placeholder='Class')
+      input(type='text', name='Address', placeholder='Adress')
       i.fa.fa-cubes
+    p.field
+      input(type='text', name='ContractDate', placeholder='ContractDate')
+      i.fa.fa-cubes
+    p.field
+      input(type='text', name='ExpireDate', placeholder='ExpireDate')
+      i.fa.fa-cubes
+    p.field
+      input(type='text', name='Payment', placeholder='Payment')
+      i.fa.fa-cubes                        
     p.submit
       button(type='submit', name='submit', value='Sign Up')
         i.fa.fa-object-ungroup
-  div
-    form(id='form', action ='/contract', method='POST')
-      input(id='LessorName',name='LessorName',placeholder='LessorName')
-      input(id='HirerName',name='HirerName',placeholder='HirerName')
-      input(id='BrokerName',name='BrokerName',placeholder='BrokerName')
-      input(id='Payment',name='Payment',placeholder='Payment')
-      input(id='DownPayment',name='DownPayment',placeholder='DownPayment')
-      input(id='leaseFee',name='leaseFee',placeholder='leaseFee')
-      input(type='submit', value='Add post')
-  div
-    p  LessorName  : #{LessorName}
-    p  HirerName   : #{HirerName}
-    p  BrokerName  : #{BrokerName}
-    p  Payment     : #{Payment}
-    p  DownPayment : #{DownPayment}
-    p  leaseFee    : #{leaseFee}
   div
     p
       img(src='/images/cont.jpg')

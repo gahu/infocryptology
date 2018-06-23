@@ -6,8 +6,8 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.1.0",
     "alert-node": "^1.2.1",
+    "async": "^2.6.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
@@ -16,8 +16,9 @@
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
+    "ganache-cli": "^6.1.3",
     "http-errors": "~1.6.2",
-    "jade": "^1.11.0",
+    "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
@@ -25,25 +26,10 @@
     "passport-local": "^1.0.0",
     "promise": "^8.0.1",
     "pug": "^2.0.3",
-    "sequelize": "^4.38.0",
+    "sequelize": "^4.37.10",
     "sequelize-import": "^1.2.1",
     "serve-favicon": "^2.5.0",
-    "socket.io": "^2.1.1",
     "solc": "^0.4.24",
-    "tar": "^4.4.4",
-    "web3": "^1.0.0-beta.34"
-  },
-  "description": "- project repository\r - 프로젝트에 contribute 하기위해서 project owner 가 contributor 로 추가해줘야한다.\r - 추가하려는 email 은 개인 profile > setting 에서 email 을 공개해줘야한다.\r - contributor 가 되기 위해서 repository 를 fork 해야한다.",
-  "main": "app.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gahu/infocryptology.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gahu/infocryptology/issues"
-  },
-  "homepage": "https://github.com/gahu/infocryptology#readme"
+    "web3": "^0.20.6"
+  }
 }
