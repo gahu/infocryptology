@@ -1,0 +1,41 @@
+extends layout_login
+
+block pageContent
+  h1 Contract
+  form.form-1(method='POST', action='/contract', id='contract')
+    p.field
+      input(type='text', name='email', placeholder='Email Address')
+      i.fa.fa-address-card-o
+    p.field
+      input(type='text', name='password', placeholder='Password')
+      i.fa.fa-lock
+    p.field
+      input(type='text', name='name', placeholder='Name')
+      i.fa.fa-align-justify
+    p.field
+      input(type='password', name='class', placeholder='Class')
+      i.fa.fa-cubes
+    p.submit
+      button(type='submit', name='submit', value='Sign Up')
+        i.fa.fa-object-ungroup
+  div
+    form(id='form', action ='/contract', method='POST')
+      input(id='LessorName',name='LessorName',placeholder='LessorName')
+      input(id='HirerName',name='HirerName',placeholder='HirerName')
+      input(id='BrokerName',name='BrokerName',placeholder='BrokerName')
+      input(id='Payment',name='Payment',placeholder='Payment')
+      input(id='DownPayment',name='DownPayment',placeholder='DownPayment')
+      input(id='leaseFee',name='leaseFee',placeholder='leaseFee')
+      input(type='submit', value='Add post')
+  div
+    p  LessorName  : #{LessorName}
+    p  HirerName   : #{HirerName}
+    p  BrokerName  : #{BrokerName}
+    p  Payment     : #{Payment}
+    p  DownPayment : #{DownPayment}
+    p  leaseFee    : #{leaseFee}
+  div
+    p
+      img(src='/images/cont.jpg')
+      img(src='/images/1.png')
+      img(src='/images/2.png')

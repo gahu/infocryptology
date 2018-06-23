@@ -60,7 +60,7 @@ router.post('/signup', function(req, res){
 
       models.User.create({
         UserID: req.body.email,
-        UserPWD: userPassword,
+        UserPWD: req.body.password,
         UserName: req.body.name,
         UserClass: req.body.class
       }).then(result =>{

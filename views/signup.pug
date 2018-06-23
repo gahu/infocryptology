@@ -1,0 +1,19 @@
+extends layout
+
+block pageContent
+  form.form-1(method='POST', action='/auth/signup', id='signup')
+    p.field
+      input(type='text', name='email', placeholder='Email Address')
+      i.fa.fa-address-card-o
+    p.field
+      input(type='text', name='password', placeholder='Password')
+      i.fa.fa-lock
+    p.field
+      input(type='text', name='name', placeholder='Name')
+      i.fa.fa-align-justify
+    p.field
+      input(type='password', name='class', placeholder='Class')
+      i.fa.fa-cubes
+    p.submit
+      button(type='submit', name='submit', value='Sign Up')
+        i.fa.fa-arrow-right
