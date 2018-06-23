@@ -1,67 +1,48 @@
-pragma solidity ^0.4.17;
+pragma solidity ^0.4.24;
 
  contract HouseContract{
     address Creator;
-    string LessorName="chang";
-    string HirerName="han";
-    string BrokerName="jang";
-    string Address="shincgon";
-    string ContractDate="2017-13-45";
-    string ExpireDate="2018-2-31";
-    uint16 Payment=6500;
-    uint16 DownPayment=30;
-    uint16 leaseFee=15;
 
-    function HouseContract() public {
-        Creator = msg.sender;
+    struct Content{
+        string LessorName;
+        string HirerName;
+        string BrokerName;
+        string Address;
+        string ContractDate;
+        string ExpireDate;
+        string payment;
     }
 
-    function getCreator() constant public returns(address) {
-        return Creator;
+    uint256 ContractNumber = 1;
+    
+    mapping(uint256 => Content) Contracts;
+
+    function addContract(string _lessor, string _hirer,  string _broker, string _address, 
+                        string _ContractDate, string _ExpireDate, string _payment) 
+                            public {
+                                Contracts[ContractNumber].LessorName = _lessor;
+                                Contracts[ContractNumber].HirerName = _hirer;
+                                Contracts[ContractNumber].BrokerName = _broker;
+                                Contracts[ContractNumber].Address = _address;
+                                Contracts[ContractNumber].ContractDate = _ContractDate;
+                                Contracts[ContractNumber].ExpireDate = _ExpireDate;
+                                Contracts[ContractNumber].payment = _payment;
+                                ContractNumber++;
     }
 
-    function insertContract_name(
-                //address _userAddress,
-                string _LessorName,
-                string _HirerName,
-                string _BrokerName
-                )public {
-        LessorName = _LessorName;
-        HirerName = _HirerName;
-        BrokerName = _BrokerName;
-
+    function getContracts(uint256 _ContractNumber) public view 
+    returns(string, string, string, string, string, string, string){
+        return(
+        Contracts[_ContractNumber].LessorName,
+        Contracts[_ContractNumber].HirerName,
+        Contracts[_ContractNumber].BrokerName,
+        Contracts[_ContractNumber].Address,
+        Contracts[_ContractNumber].ContractDate,
+        Contracts[_ContractNumber].ExpireDate,
+        Contracts[_ContractNumber].payment);
     }
-    function insertContract_date (
-                string _Address,
-                string _ContractDate,
-                string _ExpireDate
-                )public {
-          Address = _Address;
-          ContractDate = _ContractDate;
-          ExpireDate = _ExpireDate;
-
-      }
-      function insertContract_etc (
-                uint16 _Payment,
-                uint16 _DownPayment,
-                uint16 _leaseFee
-                )public {
-          Payment = _Payment;
-          DownPayment = _DownPayment;
-          leaseFee = _leaseFee;
-                }
-
-    function getContract_name() public constant
-    returns(string, string, string){
-            return (LessorName, HirerName, BrokerName);
-            }
-    function getContract_date() public constant
-    returns(string, string, string){
-            return ( Address,ContractDate, ExpireDate);
-            }
-
-    function getContract_etc()public  constant
-    returns(uint16, uint16, uint16){
-            return (Payment, DownPayment, leaseFee);
-            }
+    
+    function getContractNumber() public view returns (uint){
+        return ContractNumber;
+    }
 }
