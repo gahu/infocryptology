@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 	if(req.session.user_uid){
 		res.render('index_login');
 	}else{
-	  res.render('index', { title: 'Express' });
+	  res.render('index', { title: 'BlockChain' });
 	}
 });
 

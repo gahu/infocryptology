@@ -1,9 +1,0 @@
-extends layout
-
-block pageContent
-  form(method='POST', action='/auth/signin', id='signin')
-    label(for='email') Email Address
-    input(type='text', name='email', placeholder='Email')
-    label(for='password') Password
-    input(type='text', name='password', placeholder='Password')
-    input.btn(type='submit', value='Sign In')
